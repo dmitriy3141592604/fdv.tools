@@ -1,0 +1,11 @@
+/target/
+.classpath
+.project
+.settings
+**/*.log
+**/*.txt
+**/*.swp
+tree.tree
+update-pom-version.cmd
+/logts/
+
