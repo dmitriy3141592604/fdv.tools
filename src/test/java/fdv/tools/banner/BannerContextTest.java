@@ -11,7 +11,8 @@ public class BannerContextTest extends BannerContextTestBase {
 	@Test
 	@Behavior("Строка переданная в вызове является сообщением")
 	public void test$oneArgumentMessage() {
-		assertEquals("message", new BannerContext().parse(new String[] { "message" }).getMessage());
+		final String expected = randomString();
+		assertEquals(expected, new BannerContext().parse(new String[] { expected }).getMessage());
 	}
 
 	@Test
@@ -24,7 +25,10 @@ public class BannerContextTest extends BannerContextTestBase {
 	@Test
 	@Behavior("Аргументы склеиваются")
 	public void test$manuArguments() {
-		assertEquals("m e s", new BannerContext().parse(new String[] { "m", "e", "s" }).getMessage());
+		final String s1 = randomString();
+		final String s2 = randomString();
+		final String s3 = randomString();
+		assertEquals(s1 + " " + s2 + " " + s3, new BannerContext().parse(new String[] { s1, s2, s3 }).getMessage());
 	}
 
 }

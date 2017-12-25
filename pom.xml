@@ -18,6 +18,7 @@
 		<maven.compiler.plugin.version>3.7.0</maven.compiler.plugin.version>
 		<com.github.stefanbirkner-system.rules>1.17.0</com.github.stefanbirkner-system.rules>
 		<gson.version>2.8.2</gson.version>
+		<fdv.test.support.version>0.0.1</fdv.test.support.version>
 	</properties>
 
 	<dependencies>
@@ -70,6 +71,13 @@
 			<groupId>com.github.stefanbirkner</groupId>
 			<artifactId>system-rules</artifactId>
 			<version>${com.github.stefanbirkner-system.rules}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>fdv.test.support</groupId>
+			<artifactId>fdv.test.support</artifactId>
+			<version>0.0.1</version>
+			<scope>test</scope>
 		</dependency>
 
 	</dependencies>

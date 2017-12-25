@@ -4,7 +4,9 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.rules.ExpectedException;
 
-public abstract class BannerContextTestBase {
+import fdv.test.support.RandomTestBase;
+
+public abstract class BannerContextTestBase implements RandomTestBase {
 
 	@Rule
 	public ExpectedException e = ExpectedException.none();
