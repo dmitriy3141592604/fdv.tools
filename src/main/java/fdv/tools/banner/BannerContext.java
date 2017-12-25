@@ -1,13 +1,12 @@
 package fdv.tools.banner;
 
-public class BannerContext {
+import fdv.tools.support.ArgumentParser;
+
+public class BannerContext implements ArgumentParser<BannerContext> {
 
 	private String message;
 
-	public BannerContext() {
-
-	}
-
+	@Override
 	public BannerContext parse(String[] args) {
 		if (args.length == 0) {
 			throw new IllegalArgumentException("В переданных параметрах нет сообщения. Количество аргументов: [0]");

@@ -1,13 +1,8 @@
 package fdv.tools.banner;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import fdv.tools.support.AbstractTool;
 
 public class Banner extends AbstractTool<String[]> {
-
-	protected final Logger logger = LoggerFactory.getLogger(getClass());
 
 	public static void main(String... args) {
 		new Banner().accept(args);
