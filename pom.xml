@@ -3,7 +3,7 @@
 	<groupId>fdv.tools</groupId>
 	<artifactId>fdv-tools</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Report Generator</name>
+	<name>FDV Tools</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
