@@ -32,6 +32,7 @@ public class FontBounds {
 	private final static Logger logger = LoggerFactory.getLogger(FontBounds.class);
 
 	public static void main(String... args) throws Exception {
+
 		logger.warn("Start");
 		try (WritableImage image = new WritableImage("font-align-out/image1.png", 500, 400)) {
 
