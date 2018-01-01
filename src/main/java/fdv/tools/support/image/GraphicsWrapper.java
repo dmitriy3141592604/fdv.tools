@@ -5,9 +5,15 @@ import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import java.awt.Paint;
+import java.awt.Rectangle;
 import java.awt.geom.Rectangle2D;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class GraphicsWrapper {
+
+	protected Logger logger = LoggerFactory.getLogger(getClass());
 
 	private final WritableImage image;
 
@@ -38,15 +44,22 @@ public class GraphicsWrapper {
 		getGraphics(image).setFont(font);
 	}
 
-	public void drawDecoratedString(String message, int x, int y, int margin) {
-		g.setFont(new Font("Arial", Font.PLAIN, 19));
+	public Rectangle drawDecoratedString(String message, int x, int y, int margin) {
 		final FontMetrics fm = g.getFontMetrics();
 		final Rectangle2D stringBounds = fm.getStringBounds(message, g);
 		final int stringHeight = (int) stringBounds.getHeight();
 		final int stringWidth = (int) stringBounds.getWidth();
 
+		logger.warn("stringBounds: {}", stringBounds);
+
 		g.setPaint(Color.BLACK);
 		g.drawString(message, x, y);
-		g.drawRect(x - margin, y - stringHeight - margin, stringWidth + margin * 2, stringHeight + margin * 2);
+		final int rectangleX = x - margin;
+		final int rectanbleY = y - stringHeight - margin;
+		final int rectangleWidth = stringWidth + margin * 2;
+		final int rectangleHeight = stringHeight + margin * 2;
+
+		g.drawRect(rectangleX, rectanbleY, rectangleWidth, rectangleHeight);
+		return new Rectangle(rectangleX, rectanbleY, rectangleWidth, rectangleHeight);
 	};
 }
