@@ -48,6 +48,9 @@ public class ExternalUserViewer extends SimpleWindowBase {
 					{
 						g.drawLine((int) am.getNeckLineStartX(), am.getNeckLineStartY(), (int) am.getNeckLineEndX(), (int) am.getNeckLineEndY());
 					}
+					{
+						g.drawLine((int) am.getLefthandStartX(), (int) am.getLeftHandStartY(), am.getRightHandEndX(), (int) am.getRightHandEndY());
+					}
 				}
 			}
 

@@ -66,7 +66,7 @@ public class ActorModel {
 	}
 
 	public double getHeadLeftUpperCornerX() {
-		return getXCenter() - getHeadIndent();
+		return getCenterX() - getHeadIndent();
 	}
 
 	public double getHeadLeftUpperCornerY() {
@@ -77,12 +77,12 @@ public class ActorModel {
 		setFullImageBounds(new Rectangle(x, y, width, height));
 	}
 
-	public double getXCenter() {
+	public double getCenterX() {
 		return fullImageBounds.x + fullImageBounds.getWidth() / 2;
 	}
 
 	public double getNeckLineStartX() {
-		return getXCenter();
+		return getCenterX();
 	}
 
 	public int getNeckLineStartY() {
@@ -90,11 +90,35 @@ public class ActorModel {
 	}
 
 	public double getNeckLineEndX() {
-		return getXCenter();
+		return getCenterX();
 	}
 
 	public double getNeckLineEndY() {
 		return getNeckLineStartY() + getHandIndent();
+	}
+
+	public double getHandCenterX() {
+		return getCenterX();
+	}
+
+	public double getHandCenterY() {
+		return getNeckLineEndY();
+	}
+
+	public double getLefthandStartX() {
+		return fullImageBounds.x + margin;
+	}
+
+	public double getLeftHandStartY() {
+		return getHandCenterY();
+	}
+
+	public int getRightHandEndX() {
+		return fullImageBounds.x + fullImageBounds.width - margin;
+	}
+
+	public double getRightHandEndY() {
+		return getLeftHandStartY();
 	}
 
 }

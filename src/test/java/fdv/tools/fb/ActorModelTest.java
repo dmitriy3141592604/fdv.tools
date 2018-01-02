@@ -13,7 +13,7 @@ public class ActorModelTest extends ActorModelTestBase {
 	public void test$xCenter() {
 		am.setFullImageBounds(10, 10, 50, 50);
 
-		assertEquals(35, (int) am.getXCenter());
+		assertEquals(35, (int) am.getCenterX());
 	}
 
 	@Test
@@ -55,7 +55,7 @@ public class ActorModelTest extends ActorModelTestBase {
 		am.setHeadIndent(10);
 
 		final int expected = 45;
-		assertEquals(expected, (int) am.getXCenter());
+		assertEquals(expected, (int) am.getCenterX());
 		assertEquals(expected, (int) am.getNeckLineStartX());
 	}
 
@@ -67,7 +67,7 @@ public class ActorModelTest extends ActorModelTestBase {
 		am.setHeadIndent(10);
 
 		final int expected = 60;
-		assertEquals(expected, (int) am.getXCenter());
+		assertEquals(expected, (int) am.getCenterX());
 		assertEquals(expected, (int) am.getNeckLineStartX());
 	}
 
@@ -95,6 +95,70 @@ public class ActorModelTest extends ActorModelTestBase {
 		am.setHandIndent(12);
 
 		assertEquals(33, (int) am.getNeckLineEndY());
+	}
+
+	@Test
+	@Behavior("Можно получить x координату центра пересечения рук")
+	public void test$handCenterX() {
+		am.setFullImageBounds(20, 10, 80, 50);
+
+		assertEquals(60, (int) am.getCenterX());
+		assertEquals(60, (int) am.getHandCenterX());
+	}
+
+	@Test
+	@Behavior("Можно получить y координату центра пересечения рук")
+	public void test$handCenterY() {
+		am.setFullImageBounds(20, 10, 80, 50);
+		am.setMargin(11);
+		am.setHeadIndent(7);
+		am.setHandIndent(13);
+
+		assertEquals(10 + 11 + 2 * 7 + 13, (int) am.getHandCenterY());
+	}
+
+	@Test
+	@Behavior("Можно получить x координату начала левой руки")
+	public void test$leftHandStartX() {
+		am.setFullImageBounds(20, 10, 80, 50);
+		am.setMargin(10);
+
+		assertEquals(20 + 10, (int) am.getLefthandStartX());
+	}
+
+	@Test
+	@Behavior("Можно получить y координату начала левой руки")
+	public void test$leftHandStartY() {
+		am.setFullImageBounds(20, 10, 80, 50);
+		am.setMargin(11);
+		am.setHeadIndent(7);
+		am.setHandIndent(13);
+
+		final int expectedHandCenterY = 10 + 11 + 2 * 7 + 13;
+		assertEquals(expectedHandCenterY, (int) am.getLeftHandStartY());
+		assertEquals(expectedHandCenterY, (int) am.getHandCenterY());
+	}
+
+	@Test
+	@Behavior("Можно получить x координату конца правой руки")
+	public void test$rightHandEndX() {
+		am.setFullImageBounds(20, 10, 80, 50);
+		am.setMargin(11);
+
+		assertEquals(89, am.getRightHandEndX());
+	}
+
+	@Test
+	@Behavior("Можно получить y координату конца правой руки")
+	public void test$rightHandEndY() {
+		am.setFullImageBounds(20, 10, 80, 50);
+		am.setMargin(11);
+		am.setHeadIndent(7);
+		am.setHandIndent(13);
+
+		final int expectedHandCenterY = 10 + 11 + 2 * 7 + 13;
+		assertEquals(expectedHandCenterY, (int) am.getRightHandEndY());
+		assertEquals(expectedHandCenterY, (int) am.getHandCenterY());
 	}
 
 }
